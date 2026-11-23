@@ -19,23 +19,23 @@ elk.
 
 Решение:
 Разворачиваем ВМ. Проверяем параметры времени:
-```
+
 ![Скриншот](screen/1.png)
 ![Скриншот](screen/2.png)
-```
+
 Устанавливаем nginx
-```
+
 ![Скриншот](screen/3.png)
-```
+
 Настраиваем rsyslog /etc/rsyslog.conf 
-```
+
 ![Скриншот](screen/4.png)
 ![Скриншот](screen/5.png)
-```
+
 Проверяем порты на сервере обработки логов 
-```
+
 ![Скриншот](screen/6.png)
-```
+
 Настроим отправку логов с web-сервера```
 error_log /var/log/nginx/error.log;
 error_log syslog:server=192.168.56.15:514,tag=nginx_error;
@@ -44,14 +44,13 @@ http {
 access_log syslog:server=192.168.56.15:514,tag=nginx_access,severity=info combined;```
 
 Сохраняем и проверяем
-```
+
 ![Скриншот](screen/7.png)
-```
+
 Проверяем access логи web сервера на сервере обработки логов 
-```
+
 ![Скриншот](screen/8.png)
-```
+
 Проверяем error логи предварительно настроив конфигурацию с ошибкой
-```
+
 ![Скриншот](screen/9.png)
-```
